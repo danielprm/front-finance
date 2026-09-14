@@ -4,9 +4,9 @@
 async function carregarLancamentos() {
   const lista = document.getElementById("lista-transacoes");
   lista.innerHTML = "<p>Carregando...</p>";
-  await preencherSelectCategorias(document.getElementById("transacao-categoria"));
   const hoje = new Date();
   try {
+    await preencherSelectCategorias(document.getElementById("transacao-categoria"));
     const transacoes = await Api.listarTransacoes(hoje.getMonth() + 1, hoje.getFullYear());
     lista.innerHTML = "";
     transacoes.forEach((transacao) => lista.appendChild(criarCardTransacao(transacao)));
@@ -23,7 +23,7 @@ function criarCardTransacao(transacao) {
   card.innerHTML = `
     <strong>${escapeHtml(transacao.descricao)}</strong>
     <p style="color:${corValor}">${sinal} R$ ${transacao.valor.toFixed(2)}</p>
-    <small>${transacao.data}${transacao.despesa_fixa_id ? " · fixa" : ""}</small>
+    <small>${escapeHtml(transacao.data)}${transacao.despesa_fixa_id ? " · fixa" : ""}</small>
     <div style="margin-top:8px; display:flex; gap:8px;">
       <button class="botao--secundario" type="button" data-acao="detalhes">Detalhes</button>
       <button class="botao--perigo" type="button" data-acao="remover">Remover</button>
@@ -66,7 +66,13 @@ document.addEventListener("DOMContentLoaded", () => {
     try {
       await Api.criarTransacao(dados);
       evento.target.reset();
-      mostrarToast("Lançamento criado.");
+      const dataCriada = new Date(`${dados.data}T00:00:00`);
+      const hoje = new Date();
+      const mesmoMes =
+        dataCriada.getMonth() === hoje.getMonth() && dataCriada.getFullYear() === hoje.getFullYear();
+      mostrarToast(
+        mesmoMes ? "Lançamento criado." : "Lançamento criado em outro mês — não aparece nesta lista."
+      );
       carregarLancamentos();
     } catch (erro) {
       mostrarToast(erro.message, "erro");
