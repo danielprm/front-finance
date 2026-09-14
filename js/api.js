@@ -27,4 +27,10 @@ const Api = {
   buscarCategoria: (id) => apiRequest(`/categorias/${id}`),
   criarCategoria: (dados) => apiRequest("/categorias", { method: "POST", body: JSON.stringify(dados) }),
   removerCategoria: (id) => apiRequest(`/categorias/${id}`, { method: "DELETE" }),
+
+  listarDespesasFixas: () => apiRequest("/despesas-fixas"),
+  criarDespesaFixa: (dados) => apiRequest("/despesas-fixas", { method: "POST", body: JSON.stringify(dados) }),
+  atualizarDespesaFixa: (id, dados) => apiRequest(`/despesas-fixas/${id}`, { method: "PUT", body: JSON.stringify(dados) }),
+  removerDespesaFixa: (id) => apiRequest(`/despesas-fixas/${id}`, { method: "DELETE" }),
+  gerarFixasDoMes: () => apiRequest("/transacoes/gerar-fixas", { method: "POST" }),
 };
