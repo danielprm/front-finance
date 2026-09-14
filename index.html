@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meu Dinheiro — Controle de Gastos</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <h1 class="logo">Meu Dinheiro</h1>
+      <nav class="menu">
+        <button class="menu-item" data-nav="dashboard">Dashboard</button>
+        <button class="menu-item" data-nav="lancamentos">Lançamentos</button>
+        <button class="menu-item" data-nav="despesas-fixas">Despesas Fixas</button>
+        <button class="menu-item" data-nav="categorias">Categorias</button>
+      </nav>
+    </aside>
+
+    <main class="conteudo">
+      <section data-view="dashboard" hidden>
+        <h2>Dashboard</h2>
+        <p>Em construção.</p>
+      </section>
+
+      <section data-view="lancamentos" hidden>
+        <h2>Lançamentos</h2>
+        <p>Em construção.</p>
+      </section>
+
+      <section data-view="despesas-fixas" hidden>
+        <h2>Despesas Fixas</h2>
+        <p>Em construção.</p>
+      </section>
+
+      <section data-view="categorias" hidden>
+        <h2>Categorias</h2>
+        <p>Em construção.</p>
+      </section>
+    </main>
+  </div>
+
+  <div id="toast-container" class="toast-container"></div>
+
+  <script src="js/app.js"></script>
+  <script src="js/api.js"></script>
+</body>
+</html>
