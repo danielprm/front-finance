@@ -26,7 +26,33 @@
 
       <section data-view="lancamentos" hidden>
         <h2>Lançamentos</h2>
-        <p>Em construção.</p>
+        <form id="form-transacao" class="form-inline">
+          <div class="campo">
+            <label for="transacao-descricao">Descrição</label>
+            <input type="text" id="transacao-descricao" required />
+          </div>
+          <div class="campo">
+            <label for="transacao-valor">Valor</label>
+            <input type="number" id="transacao-valor" step="0.01" required />
+          </div>
+          <div class="campo">
+            <label for="transacao-tipo">Tipo</label>
+            <select id="transacao-tipo">
+              <option value="despesa">Despesa</option>
+              <option value="receita">Receita</option>
+            </select>
+          </div>
+          <div class="campo">
+            <label for="transacao-data">Data</label>
+            <input type="date" id="transacao-data" required />
+          </div>
+          <div class="campo">
+            <label for="transacao-categoria">Categoria</label>
+            <select id="transacao-categoria" required></select>
+          </div>
+          <button type="submit" class="botao">Adicionar lançamento</button>
+        </form>
+        <div id="lista-transacoes" class="grid-cards"></div>
       </section>
 
       <section data-view="despesas-fixas" hidden>
@@ -78,5 +104,6 @@
   <script src="js/api.js"></script>
   <script src="js/categorias.js"></script>
   <script src="js/despesasFixas.js"></script>
+  <script src="js/lancamentos.js"></script>
 </body>
 </html>
