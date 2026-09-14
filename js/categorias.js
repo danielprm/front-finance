@@ -17,12 +17,13 @@ function criarCardCategoria(categoria) {
   const card = document.createElement("div");
   card.className = "card";
   card.innerHTML = `
-    <span class="chip" style="background:${categoria.cor}">${escapeHtml(categoria.nome)}</span>
+    <span class="chip">${escapeHtml(categoria.nome)}</span>
     <div style="margin-top:12px; display:flex; gap:8px;">
       <button class="botao--secundario" type="button" data-acao="detalhes">Detalhes</button>
       <button class="botao--perigo" type="button" data-acao="remover">Remover</button>
     </div>
   `;
+  card.querySelector(".chip").style.background = categoria.cor;
   card.querySelector('[data-acao="detalhes"]').addEventListener("click", () => verDetalhesCategoria(categoria.id));
   card.querySelector('[data-acao="remover"]').addEventListener("click", () => removerCategoria(categoria.id));
   return card;
