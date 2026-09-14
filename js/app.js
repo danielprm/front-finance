@@ -41,6 +41,20 @@ function mostrarToast(mensagem, tipo = "sucesso") {
   setTimeout(() => toast.remove(), 3000);
 }
 
+/**
+ * Escapa caracteres especiais de HTML para exibir texto do usuário com
+ * segurança dentro de innerHTML, sem permitir que ele injete marcação ou
+ * script.
+ *
+ * Arguments:
+ *   texto: texto potencialmente digitado pelo usuário.
+ */
+function escapeHtml(texto) {
+  const div = document.createElement("div");
+  div.textContent = texto;
+  return div.innerHTML;
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll("[data-nav]").forEach((botao) => {
     botao.addEventListener("click", () => mostrarView(botao.dataset.nav));

@@ -17,7 +17,7 @@ function criarCardCategoria(categoria) {
   const card = document.createElement("div");
   card.className = "card";
   card.innerHTML = `
-    <span class="chip" style="background:${categoria.cor}">${categoria.nome}</span>
+    <span class="chip" style="background:${categoria.cor}">${escapeHtml(categoria.nome)}</span>
     <div style="margin-top:12px; display:flex; gap:8px;">
       <button class="botao--secundario" type="button" data-acao="detalhes">Detalhes</button>
       <button class="botao--perigo" type="button" data-acao="remover">Remover</button>
@@ -58,7 +58,7 @@ async function removerCategoria(id) {
 async function preencherSelectCategorias(selectEl) {
   const categorias = await Api.listarCategorias();
   selectEl.innerHTML = categorias
-    .map((categoria) => `<option value="${categoria.id}">${categoria.nome}</option>`)
+    .map((categoria) => `<option value="${categoria.id}">${escapeHtml(categoria.nome)}</option>`)
     .join("");
 }
 
