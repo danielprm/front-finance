@@ -22,5 +22,9 @@ async function apiRequest(caminho, opcoes = {}) {
   return resposta.json();
 }
 
-// Cada tela adiciona aqui os métodos que precisa (uma chave por rota da API).
-const Api = {};
+const Api = {
+  listarCategorias: () => apiRequest("/categorias"),
+  buscarCategoria: (id) => apiRequest(`/categorias/${id}`),
+  criarCategoria: (dados) => apiRequest("/categorias", { method: "POST", body: JSON.stringify(dados) }),
+  removerCategoria: (id) => apiRequest(`/categorias/${id}`, { method: "DELETE" }),
+};
