@@ -45,6 +45,8 @@ function mostrarToast(mensagem, tipo = "sucesso") {
  * Escapa caracteres especiais de HTML para exibir texto do usuário com
  * segurança dentro de innerHTML, sem permitir que ele injete marcação ou
  * script.
+ * Só é seguro em contexto de texto — NÃO escapa aspas, então não deve ser
+ * usado dentro de um atributo HTML (ex: dentro de style="...", href="...").
  *
  * Arguments:
  *   texto: texto potencialmente digitado pelo usuário.
