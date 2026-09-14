@@ -36,7 +36,18 @@
 
       <section data-view="categorias" hidden>
         <h2>Categorias</h2>
-        <p>Em construção.</p>
+        <form id="form-categoria" class="form-inline">
+          <div class="campo">
+            <label for="categoria-nome">Nome</label>
+            <input type="text" id="categoria-nome" required />
+          </div>
+          <div class="campo">
+            <label for="categoria-cor">Cor</label>
+            <input type="color" id="categoria-cor" value="#2AB7A9" />
+          </div>
+          <button type="submit" class="botao">Adicionar categoria</button>
+        </form>
+        <div id="lista-categorias" class="grid-cards"></div>
       </section>
     </main>
   </div>
@@ -45,5 +56,6 @@
 
   <script src="js/app.js"></script>
   <script src="js/api.js"></script>
+  <script src="js/categorias.js"></script>
 </body>
 </html>
