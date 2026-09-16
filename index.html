@@ -21,7 +21,20 @@
     <main class="conteudo">
       <section data-view="dashboard" hidden>
         <h2>Dashboard</h2>
-        <p>Em construção.</p>
+        <div class="card" id="resumo-saldo">
+          <p>Saldo do mês</p>
+          <strong id="valor-saldo">R$ 0,00</strong>
+        </div>
+
+        <div class="card" style="margin-top:16px">
+          <p>Fixo x Eventual</p>
+          <div class="progress-bar">
+            <div id="barra-fixo" class="progress-bar__fixo"></div>
+          </div>
+          <small id="legenda-fixo-eventual"></small>
+        </div>
+
+        <div id="resumo-categorias" class="grid-cards" style="margin-top:16px"></div>
       </section>
 
       <section data-view="lancamentos" hidden>
@@ -105,5 +118,6 @@
   <script src="js/categorias.js"></script>
   <script src="js/despesasFixas.js"></script>
   <script src="js/lancamentos.js"></script>
+  <script src="js/dashboard.js"></script>
 </body>
 </html>

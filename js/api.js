@@ -38,4 +38,6 @@ const Api = {
   buscarTransacao: (id) => apiRequest(`/transacoes/${id}`),
   criarTransacao: (dados) => apiRequest("/transacoes", { method: "POST", body: JSON.stringify(dados) }),
   removerTransacao: (id) => apiRequest(`/transacoes/${id}`, { method: "DELETE" }),
+
+  buscarResumo: (mes, ano) => apiRequest(`/resumo?mes=${mes}&ano=${ano}`),
 };
