@@ -11,6 +11,7 @@ async function carregarDashboard() {
     renderizarCategorias(resumo);
   } catch (erro) {
     mostrarToast(erro.message, "erro");
+    document.getElementById("resumo-categorias").innerHTML = "<p>Não foi possível carregar o resumo.</p>";
   }
 }
 

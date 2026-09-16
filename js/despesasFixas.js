@@ -1,8 +1,11 @@
+/**
+ * Busca as despesas fixas na API e desenha os cards na tela.
+ */
 async function carregarDespesasFixas() {
   const lista = document.getElementById("lista-despesas-fixas");
   lista.innerHTML = "<p>Carregando...</p>";
-  await preencherSelectCategorias(document.getElementById("despesa-categoria"));
   try {
+    await preencherSelectCategorias(document.getElementById("despesa-categoria"));
     const despesas = await Api.listarDespesasFixas();
     lista.innerHTML = "";
     despesas.forEach((despesa) => lista.appendChild(criarCardDespesaFixa(despesa)));
